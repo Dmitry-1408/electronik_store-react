@@ -45,6 +45,7 @@ const productData = [
   },
 ];
 
+
 function App() {
   return (
     <div>
@@ -76,9 +77,21 @@ function Catalog() {
 }
 
 function Product() {
-  return <li>Products</li>;
+  const products = [...productData];
+
+  return (
+    <li>
+      <img src={products[1].photoName} alt={products[1].name} />
+      <div>
+        <h3>{products[1].name}</h3>
+        <p>{products[1].description}</p>
+        <span>{products[1].price}</span>
+      </div>
+    </li>
+  );
 }
 
-function Footer(){
-  return <footer>Footer</footer>
+
+function Footer() {
+  return <footer>Footer</footer>;
 }
