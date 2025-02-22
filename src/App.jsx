@@ -1,4 +1,5 @@
 //import React from "react";
+import "./index.css"
 
 const productData = [
   {
@@ -61,13 +62,13 @@ function Header() {
   const hour = new Date().getHours();
   const openHours = 9; // начало работы
   const closeHours = 21; // окнчание работы
-  
+
   let isOpen = hour >= openHours && hour <= closeHours; // режим работы
 
   return (
-    <header>
+    <header className="header">
       <h1>Electronik Store</h1>
-      <nav>
+      <nav className="nav">
         <ul>
           <li>
             Home
@@ -87,7 +88,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-      <div>
+      <div className="working-hours">
         {isOpen ? (
           <p>
             We are currently open. Horus: {openHours}:00 - {closeHours}:00
@@ -104,8 +105,8 @@ function Header() {
 
 function Catalog() {
   return (
-    <main>
-      <ul>
+    <main className="catalog">
+      <ul className="products">
         <Product />
       </ul>
     </main>
@@ -116,7 +117,7 @@ function Product() {
   const products = [...productData];
 
   return (
-    <li>
+    <li className="product">
       <img src={products[1].photoName} alt={products[1].name} />
       <div>
         <h3>{products[1].name}</h3>
@@ -128,5 +129,5 @@ function Product() {
 }
 
 function Footer() {
-  return <footer>Footer</footer>;
+  return <footer className="footer">Footer</footer>;
 }
