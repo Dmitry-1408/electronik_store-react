@@ -1,5 +1,5 @@
 //import React from "react";
-import "./index.css"
+import "./index.css";
 
 const productData = [
   {
@@ -107,22 +107,34 @@ function Catalog() {
   return (
     <main className="catalog">
       <ul className="products">
-        <Product />
+        <Product
+          name="Laptop Pro"
+          img="/laptop.png"
+          price={1200}
+          description="High-performance laptop for professionals."
+        />
+        <Product
+          name="Smartphone X"
+          img="/smartphone.png"
+          price={800}
+          description="Latest model with stunning display."
+        />
       </ul>
     </main>
   );
 }
 
-function Product() {
-  const products = [...productData];
+function Product(props) {
+  /* const products = [...productData]; */
+  console.log(props);
 
   return (
     <li className="product">
-      <img src={products[1].photoName} alt={products[1].name} />
+      <img src={props.img} alt={props.name} />
       <div>
-        <h3>{products[1].name}</h3>
-        <p>{products[1].description}</p>
-        <span>{products[1].price}</span>
+        <h3>{props.name}</h3>
+        <p>{props.description}</p>
+        <span>{props.price + 15}</span>
       </div>
     </li>
   );
