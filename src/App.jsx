@@ -46,7 +46,7 @@ const productData = [
   },
 ];
 
-function App() {
+export default function App() {
   return (
     <div>
       <Header />
@@ -56,7 +56,7 @@ function App() {
   );
 }
 
-export default App;
+//export default App;
 
 function Header() {
   const hour = new Date().getHours();
@@ -109,7 +109,7 @@ function Catalog() {
       <ul className="products">
         {/* пример автоматического ввода при помощи map() и props */}
         {productData.map((item) => (
-          <Product productObj={item}/>
+          <Product productObj={item} />
         ))}
 
         {/* пример ввода в ручную */}
@@ -130,16 +130,16 @@ function Catalog() {
   );
 }
 
-function Product(props) {
-  console.log(props);
+/* Вместо props делаем ремтрукторизацию объекта { productObj } */
 
+function Product({ productObj }) {
   return (
     <li className="product">
-      <img src={props.productObj.photoName} alt={props.productObj.name} />
+      <img src={productObj.photoName} alt={productObj.name} />
       <div>
-        <h3>{props.productObj.name}</h3>
-        <p>{props.productObj.description}</p>
-        <span>{props.productObj.price + 15}</span>
+        <h3>{productObj.name}</h3>
+        <p>{productObj.description}</p>
+        <span>{productObj.price + 15}</span>
       </div>
     </li>
   );
