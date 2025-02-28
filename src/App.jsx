@@ -111,7 +111,7 @@ function Catalog() {
       <ul className="products">
         {/* пример автоматического ввода при помощи map() и props */}
         {productData.map((item) => (
-          <Product productObj={item} />
+          <Product productObj={item} key={item.name} />
         ))}
 
         {/* пример ввода в ручную */}
@@ -136,14 +136,16 @@ function Catalog() {
 
 function Product({ productObj }) {
   return (
-    <li className="product">
-      <img src={productObj.photoName} alt={productObj.name} />
-      <div>
-        <h3>{productObj.name}</h3>
-        <p>{productObj.description}</p>
-        <span>{productObj.price + 15}</span>
-      </div>
-    </li>
+    !productObj.soldOut && (
+      <li className="product">
+        <img src={productObj.photoName} alt={productObj.name} />
+        <div>
+          <h3>{productObj.name}</h3>
+          <p>{productObj.description}</p>
+          <span>{productObj.price + 15}</span>
+        </div>
+      </li>
+    )
   );
 }
 
