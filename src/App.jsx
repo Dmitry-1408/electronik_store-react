@@ -107,7 +107,13 @@ function Catalog() {
   return (
     <main className="catalog">
       <ul className="products">
-        <Product
+        {/* пример автоматического ввода при помощи map() и props */}
+        {productData.map((item) => (
+          <Product productObj={item}/>
+        ))}
+
+        {/* пример ввода в ручную */}
+        {/* <Product
           name="Laptop Pro"
           img="/laptop.png"
           price={1200}
@@ -118,23 +124,22 @@ function Catalog() {
           img="/smartphone.png"
           price={800}
           description="Latest model with stunning display."
-        />
+        /> */}
       </ul>
     </main>
   );
 }
 
 function Product(props) {
-  /* const products = [...productData]; */
   console.log(props);
 
   return (
     <li className="product">
-      <img src={props.img} alt={props.name} />
+      <img src={props.productObj.photoName} alt={props.productObj.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.description}</p>
-        <span>{props.price + 15}</span>
+        <h3>{props.productObj.name}</h3>
+        <p>{props.productObj.description}</p>
+        <span>{props.productObj.price + 15}</span>
       </div>
     </li>
   );
