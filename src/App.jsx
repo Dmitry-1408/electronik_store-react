@@ -48,11 +48,13 @@ const productData = [
 
 export default function App() {
   return (
-    <div>
+    /* удалил div заменил на <> </> */
+    /* <React.Fragment> */
+    <>
       <Header />
       <Catalog />
       <Footer />
-    </div>
+    </>
   );
 }
 
